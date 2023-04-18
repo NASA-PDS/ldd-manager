@@ -1,8 +1,16 @@
 # Changelog
 
-## [v0.2.0-dev](https://github.com/NASA-PDS/sumo-tools/tree/v0.2.0-dev) (2022-12-19)
+## [release/0.2.3](https://github.com/NASA-PDS/sumo-tools/tree/release/0.2.3) (2023-04-18)
 
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.1.1...v0.2.0-dev)
+[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/release/0.2.2...release/0.2.3)
+
+## [release/0.2.2](https://github.com/NASA-PDS/sumo-tools/tree/release/0.2.2) (2023-04-18)
+
+[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.1.1...release/0.2.2)
+
+**Defects:**
+
+- Int to alpha calculation is invalid [\#4](https://github.com/NASA-PDS/sumo-tools/issues/4) [[s.high](https://github.com/NASA-PDS/sumo-tools/labels/s.high)]
 
 ## [v0.1.1](https://github.com/NASA-PDS/sumo-tools/tree/v0.1.1) (2022-06-02)
 
