@@ -40,7 +40,7 @@ def convert_pds4_version_to_alpha(pds4_version):
     version_list = pds4_version.split('.')
     for num in version_list:
         if int(num) >= 10:
-            pds4_version_short += chr(ord('@') + (int(num) % 10 + 1))
+            pds4_version_short += chr(ord('@') + (int(num) - 9))
         else:
             pds4_version_short += num
 
