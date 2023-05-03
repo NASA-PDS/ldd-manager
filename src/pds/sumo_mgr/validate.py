@@ -16,10 +16,10 @@ from datetime import datetime
 from subprocess import Popen, CalledProcessError, PIPE, STDOUT
 from urllib.parse import urljoin
 
+from .generate import convert_pds4_version_to_alpha
 from .util import get_latest_release
 
 from pds_github_util.assets.assets import download_asset, unzip_asset
-from pds_github_util.release.ldd_release import convert_pds4_version_to_alpha
 from pds_github_util.utils import addStandardArguments
 
 GITHUB_ORG = 'NASA-PDS'
