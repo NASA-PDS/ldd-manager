@@ -1,8 +1,8 @@
 # Changelog
 
-## [release/0.2.5](https://github.com/NASA-PDS/sumo-tools/tree/release/0.2.5) (2023-05-03)
+## [v0.2.5](https://github.com/NASA-PDS/sumo-tools/tree/v0.2.5) (2023-05-03)
 
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.2.3...release/0.2.5)
+[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.2.3...v0.2.5)
 
 ## [v0.2.3](https://github.com/NASA-PDS/sumo-tools/tree/v0.2.3) (2023-04-18)
 
