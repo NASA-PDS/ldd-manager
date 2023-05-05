@@ -155,13 +155,13 @@ def main():
         ingest_ldds = find_dependency_ingest_ldds(args.ingest_ldd_src_dir)
         for ingest in ingest_ldds:
             # execute LDDTool
-            exec_lddtool(os.path.join(sw_dir, 'bin', 'lddtool'), args.ldd_output_path, lddtool_args, [ ingest ], log_path=args.output_log_path)
+            exec_lddtool(os.path.join(sw_dir, 'bin', 'lddtool'), args.ldd_output_path, lddtool_args[:], [ ingest ], log_path=args.output_log_path)
 
         # Generate final LDDs
         ingest_ldds.extend(find_primary_ingest_ldd(args.ingest_ldd_src_dir))
 
         # execute LDDTool
-        exec_lddtool(os.path.join(sw_dir, 'bin', 'lddtool'), args.ldd_output_path, lddtool_args, ingest_ldds, log_path=args.output_log_path)
+        exec_lddtool(os.path.join(sw_dir, 'bin', 'lddtool'), args.ldd_output_path, lddtool_args[:], ingest_ldds, log_path=args.output_log_path)
 
     except CalledProcessError:
         _logger.error('FAILED: LDDTool failed unexpectedly. See output logs.')
