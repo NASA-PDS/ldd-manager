@@ -1,32 +1,32 @@
 # Changelog
 
-## [release/0.2.6](https://github.com/NASA-PDS/sumo-tools/tree/release/0.2.6) (2023-05-08)
+## [v0.2.6](https://github.com/NASA-PDS/ldd-manager/tree/v0.2.6) (2023-05-08)
 
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.2.5...release/0.2.6)
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.2.5...v0.2.6)
 
-## [v0.2.5](https://github.com/NASA-PDS/sumo-tools/tree/v0.2.5) (2023-05-03)
+## [v0.2.5](https://github.com/NASA-PDS/ldd-manager/tree/v0.2.5) (2023-05-03)
 
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.2.3...v0.2.5)
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.2.3...v0.2.5)
 
-## [v0.2.3](https://github.com/NASA-PDS/sumo-tools/tree/v0.2.3) (2023-04-18)
+## [v0.2.3](https://github.com/NASA-PDS/ldd-manager/tree/v0.2.3) (2023-04-18)
 
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.1.1...v0.2.3)
-
-**Defects:**
-
-- Int to alpha calculation is invalid [\#4](https://github.com/NASA-PDS/sumo-tools/issues/4) [[s.high](https://github.com/NASA-PDS/sumo-tools/labels/s.high)]
-
-## [v0.1.1](https://github.com/NASA-PDS/sumo-tools/tree/v0.1.1) (2022-06-02)
-
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/v0.1.0...v0.1.1)
-
-## [v0.1.0](https://github.com/NASA-PDS/sumo-tools/tree/v0.1.0) (2022-06-01)
-
-[Full Changelog](https://github.com/NASA-PDS/sumo-tools/compare/a9c48bb062d762f45719980dfcad3ff9604e6541...v0.1.0)
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.1.1...v0.2.3)
 
 **Defects:**
 
-- Hitting API limit when tagging LDD repos [\#1](https://github.com/NASA-PDS/sumo-tools/issues/1) [[s.medium](https://github.com/NASA-PDS/sumo-tools/labels/s.medium)]
+- Int to alpha calculation is invalid [\#4](https://github.com/NASA-PDS/ldd-manager/issues/4) [[s.high](https://github.com/NASA-PDS/ldd-manager/labels/s.high)]
+
+## [v0.1.1](https://github.com/NASA-PDS/ldd-manager/tree/v0.1.1) (2022-06-02)
+
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.1.0...v0.1.1)
+
+## [v0.1.0](https://github.com/NASA-PDS/ldd-manager/tree/v0.1.0) (2022-06-01)
+
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/a9c48bb062d762f45719980dfcad3ff9604e6541...v0.1.0)
+
+**Defects:**
+
+- Hitting API limit when tagging LDD repos [\#1](https://github.com/NASA-PDS/ldd-manager/issues/1) [[s.medium](https://github.com/NASA-PDS/ldd-manager/labels/s.medium)]
 
 
 
