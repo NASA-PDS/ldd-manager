@@ -12,6 +12,7 @@ import sys
 import traceback
 
 from .util import get_latest_release
+from .util import convert_pds4_version_to_alpha
 
 from datetime import datetime
 from subprocess import Popen, CalledProcessError, PIPE, STDOUT
@@ -33,18 +34,6 @@ PDS_DEV_SCHEMA_URL = 'https://pds.nasa.gov/datastandards/schema/develop/pds/'
 DOWNLOAD_PATH = '/tmp'
 
 _logger = logging.getLogger(__name__)
-
-
-def convert_pds4_version_to_alpha(pds4_version):
-    pds4_version_short = ''
-    version_list = pds4_version.split('.')
-    for num in version_list:
-        if int(num) >= 10:
-            pds4_version_short += chr(ord('@') + (int(num) - 9))
-        else:
-            pds4_version_short += num
-
-    return pds4_version_short
 
 
 def find_dependency_ingest_ldds(ingest_ldd_src_dir):

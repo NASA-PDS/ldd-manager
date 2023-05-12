@@ -1,6 +1,6 @@
-# PDS4 Sub-Model Management
+# PDS4 Local Data Dictionary Management
 
-This repo contains tools and software needed for managing PDS4 Sub-Models (formerly known as Data Dictionaries)
+This repo contains tools and software needed for managing PDS4 Local Data Dictionaries
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ Include any system-wide requirements (`brew install`, `apt-get install`, `yum in
 
 Install with:
 
-    pip install my_pds_module
+    pip install pds.ldd-manager
 
 If possible, make it so that your program works out of the box without any additional configuration—but see the [Configuration](###configuration) section for details.
 
