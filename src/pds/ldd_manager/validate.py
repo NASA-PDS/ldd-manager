@@ -50,25 +50,26 @@ def exec_validate(executable, args, data_path, pds4_version, failure_expected=Fa
         if not files:
             continue
 
-        validate_args = args.copy()
-        validate_args.append('-t')
-        validate_args.extend(files)
-
-        cmd = ['bash', executable]
-        cmd.extend(validate_args)
-        with Popen(cmd, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
-            with open(log_out, 'w') as f:
-                for line in p.stdout:
-                    print(line, end='') # process line here
-                    f.write(line)
-
-        success = False
-        if p.returncode != 0 and key == "fail":
-            success = True
-        elif p.returncode == 0 and key == "valid":
-            success = True
-        else:
-            raise CalledProcessError(p.returncode, p.args)
+        for file in files:
+            validate_args = args.copy()
+            validate_args.append('-t')
+            validate_args.extend(files)
+    
+            cmd = ['bash', executable]
+            cmd.extend(validate_args)
+            with Popen(cmd, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
+                with open(log_out, 'w') as f:
+                    for line in p.stdout:
+                        print(line, end='') # process line here
+                        f.write(line)
+    
+            success = False
+            if p.returncode != 0 and key == "fail":
+                success = True
+            elif p.returncode == 0 and key == "valid":
+                success = True
+            else:
+                raise CalledProcessError(p.returncode, p.args)
 
     return success
 
