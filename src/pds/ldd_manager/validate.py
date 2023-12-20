@@ -40,10 +40,8 @@ def exec_validate(executable, args, data_path, pds4_version, failure_expected=Fa
     if not log_path:
         log_path = os.path.expanduser("~")
 
-    dtime = datetime.now().strftime("%Y%m%d%H%M%S")
-    log_out = os.path.join(log_path, f"validate_report_{dtime}.txt")
-    if not os.path.exists(os.path.dirname(log_out)):
-        os.makedirs(os.path.dirname(log_out))
+    if not os.path.exists(os.path.dirname(log_path)):
+        os.makedirs(os.path.dirname(log_path))
 
     # Get test files to validate
     test_data = set_test_data(data_path, pds4_version)
@@ -56,6 +54,9 @@ def exec_validate(executable, args, data_path, pds4_version, failure_expected=Fa
             continue
 
         for file in files:
+            dtime = datetime.now().strftime("%Y%m%d%H%M%S")
+            log_out = os.path.join(log_path, f"validate_report_{dtime}.txt")
+
             validate_args = args.copy()
             validate_args.append("-t")
             validate_args.append(file)
