@@ -5,11 +5,11 @@ input arguments.
 """
 import argparse
 import fileinput
-import glob
 import logging
 import os
 import sys
 from datetime import datetime
+from glob import glob
 from subprocess import CalledProcessError
 from subprocess import PIPE
 from subprocess import Popen
@@ -177,7 +177,7 @@ def main():
     )
     parser.add_argument(
         "--development-release",
-        help=("flag to indicate this should be tested with a " "development release of the PDS4 Standard."),
+        help="flag to indicate this should be tested with a development release of the PDS4 Standard.",
         action="store_true",
         default=False,
     )
@@ -199,21 +199,22 @@ def main():
 
         schemas = []
         if args.schemas:
-            schemas.extend(glob.glob(args.schemas, recursive=True))
+            schemas.extend(glob(args.schemas, recursive=True))
 
         schematrons = []
         if args.schematrons:
-            # validate_args.append('-S')
-            schematrons.extend(glob.glob(args.schematrons, recursive=True))
+            schematrons.extend(glob(args.schematrons, recursive=True))
 
         if args.development_release:
             if not args.with_pds4_version:
-                raise argparse.ArgumentError("--with_pds4_version must be specified when using --development_release")
+                raise argparse.ArgumentError(
+                    args.development_release, "--with_pds4_version must be specified when using --development_release"
+                )
 
         if args.with_pds4_version:
             download_schemas(DOWNLOAD_PATH, args.with_pds4_version, dev_release=args.development_release)
-            schemas.extend(glob.glob(os.path.join(DOWNLOAD_PATH, "*.xsd")))
-            schematrons.extend(glob.glob(os.path.join(DOWNLOAD_PATH, "*.sch")))
+            schemas.extend(glob(os.path.join(DOWNLOAD_PATH, "*.xsd")))
+            schematrons.extend(glob(os.path.join(DOWNLOAD_PATH, "*.sch")))
 
         if schemas:
             validate_args.append("-x")
