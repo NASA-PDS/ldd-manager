@@ -1,5 +1,9 @@
 # Changelog
 
+## [release/1.0.0](https://github.com/NASA-PDS/ldd-manager/tree/release/1.0.0) (2023-12-20)
+
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.2.6...release/1.0.0)
+
 ## [v0.2.6](https://github.com/NASA-PDS/ldd-manager/tree/v0.2.6) (2023-05-08)
 
 [Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v0.2.5...v0.2.6)
