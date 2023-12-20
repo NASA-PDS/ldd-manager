@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""My PDS Module."""
+"""LDD Manager Module."""
 import pkg_resources
 
 
