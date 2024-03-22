@@ -7,6 +7,7 @@
 **Defects:**
 
 - LDD Manager fails when there are nested dependencies [\#7](https://github.com/NASA-PDS/ldd-manager/issues/7) [[s.high](https://github.com/NASA-PDS/ldd-manager/labels/s.high)]
+- Generate does not fail fast when the ingest ldd file is missing [\#2](https://github.com/NASA-PDS/ldd-manager/issues/2) [[s.low](https://github.com/NASA-PDS/ldd-manager/labels/s.low)]
 
 ## [v1.0.1](https://github.com/NASA-PDS/ldd-manager/tree/v1.0.1) (2023-12-20)
 
