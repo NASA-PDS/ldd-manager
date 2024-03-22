@@ -66,6 +66,9 @@ def generate_ldds_with_dependencies(src_path, sw_dir, lddtool_args, ldd_output_p
             "No IngestLDD found in src/. Verify filename matches expected pattern: PDS4_<namespace>_IngestLDD.xml"
         )
 
+    # Execute submodule activation for any dependencies
+    exec_submodule_activation(src_path)
+
     ingest_ldds = []
     dependent_ingest_ldds = LDDs.find_dependency_ingest_ldds(src_path)
     for ingest in dependent_ingest_ldds:
@@ -88,6 +91,17 @@ def generate_ldds_with_dependencies(src_path, sw_dir, lddtool_args, ldd_output_p
         log_path=output_log_path,
     )
     return ingest_ldds
+
+
+def exec_submodule_activation(execution_cwd):
+    """Execute git submodule update."""
+    cmd = "git submodule update --init --force --remote".split(" ")
+    with Popen(cmd, cwd=execution_cwd, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
+        for line in p.stdout:
+            _logger.info(line)
+
+    if p.returncode != 0:
+        raise CalledProcessError(p.returncode, p.args)
 
 
 def exec_lddtool(executable, execution_cwd, args, ingest_ldds, log_path=None):
