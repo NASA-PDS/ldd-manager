@@ -52,6 +52,38 @@ def prep_ldd_output_path(ldd_output_path):
         os.makedirs(ldd_output_path)
 
 
+def generate_ldds_with_dependencies(src_path, sw_dir, lddtool_args, ldd_output_path, output_log_path):
+    """Generate all LDDs and Dependencies.
+
+    Recursive algorithm to traverse down through all LDDs and their dependencies to generate
+    the LDDs as appropriate.
+
+    NOTE: Requires `git submodule update --init --force --remote` to be run on all dependent LDDs in advance
+    """
+    ingest_ldds = []
+    dependent_ingest_ldds = LDDs.find_dependency_ingest_ldds(src_path)
+    for ingest in dependent_ingest_ldds:
+        ingest_ldds.extend(
+            generate_ldds_with_dependencies(
+                os.path.dirname(ingest), sw_dir, lddtool_args, ldd_output_path, output_log_path
+            )
+        )
+
+    ingest_ldds.extend(LDDs.find_primary_ingest_ldd(src_path))
+    _logger.info(f"Primary LDD: {LDDs.find_primary_ingest_ldd(src_path)}")
+    _logger.info(f"Dependent LDDs: {ingest_ldds}")
+
+    # execute LDDTool
+    exec_lddtool(
+        os.path.join(sw_dir, "bin", "lddtool"),
+        ldd_output_path,
+        lddtool_args[:],
+        ingest_ldds,
+        log_path=output_log_path,
+    )
+    return ingest_ldds
+
+
 def exec_lddtool(executable, execution_cwd, args, ingest_ldds, log_path=None):
     """Execute LDDTool."""
     if not log_path:
@@ -132,28 +164,8 @@ def main():
 
         sw_dir = Assets.unzip_asset(pkg, args.deploy_dir)
 
-        # Generate dependency LDDs
-        ingest_ldds = LDDs.find_dependency_ingest_ldds(args.ingest_ldd_src_dir)
-        for ingest in ingest_ldds:
-            # execute LDDTool
-            exec_lddtool(
-                os.path.join(sw_dir, "bin", "lddtool"),
-                args.ldd_output_path,
-                lddtool_args[:],
-                [ingest],
-                log_path=args.output_log_path,
-            )
-
-        # Generate final LDDs
-        ingest_ldds.extend(LDDs.find_primary_ingest_ldd(args.ingest_ldd_src_dir))
-
-        # execute LDDTool
-        exec_lddtool(
-            os.path.join(sw_dir, "bin", "lddtool"),
-            args.ldd_output_path,
-            lddtool_args[:],
-            ingest_ldds,
-            log_path=args.output_log_path,
+        generate_ldds_with_dependencies(
+            args.ingest_ldd_src_dir, sw_dir, lddtool_args, args.ldd_output_path, args.output_log_path
         )
 
     except CalledProcessError:
