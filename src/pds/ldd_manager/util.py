@@ -124,6 +124,7 @@ class LDDs:
         # Get any dependencies first
         dependencies_path = os.path.join(ingest_ldd_src_dir, "dependencies")
         dependency_ldds = glob(os.path.join(dependencies_path, "*", "src", "*IngestLDD*.xml"))
+        logger.info(f"Dependent LDDs: {dependency_ldds}")
         return dependency_ldds
 
     @staticmethod
