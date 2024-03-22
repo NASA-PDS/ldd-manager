@@ -60,6 +60,12 @@ def generate_ldds_with_dependencies(src_path, sw_dir, lddtool_args, ldd_output_p
 
     NOTE: Requires `git submodule update --init --force --remote` to be run on all dependent LDDs in advance
     """
+    primary_ingest_ldds = LDDs.find_primary_ingest_ldd(src_path)
+    if not primary_ingest_ldds:
+        raise FileNotFoundError(
+            "No IngestLDD found in src/. Verify filename matches expected pattern: PDS4_<namespace>_IngestLDD.xml"
+        )
+
     ingest_ldds = []
     dependent_ingest_ldds = LDDs.find_dependency_ingest_ldds(src_path)
     for ingest in dependent_ingest_ldds:
@@ -69,7 +75,7 @@ def generate_ldds_with_dependencies(src_path, sw_dir, lddtool_args, ldd_output_p
             )
         )
 
-    ingest_ldds.extend(LDDs.find_primary_ingest_ldd(src_path))
+    ingest_ldds.extend(primary_ingest_ldds)
     _logger.info(f"Primary LDD: {LDDs.find_primary_ingest_ldd(src_path)}")
     _logger.info(f"Dependent LDDs: {ingest_ldds}")
 
