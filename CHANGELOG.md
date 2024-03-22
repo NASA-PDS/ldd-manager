@@ -1,5 +1,13 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/ldd-manager/tree/«unknown») (2024-03-22)
+
+[Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v1.0.1...«unknown»)
+
+**Defects:**
+
+- LDD Manager fails when there are nested dependencies [\#7](https://github.com/NASA-PDS/ldd-manager/issues/7) [[s.high](https://github.com/NASA-PDS/ldd-manager/labels/s.high)]
+
 ## [v1.0.1](https://github.com/NASA-PDS/ldd-manager/tree/v1.0.1) (2023-12-20)
 
 [Full Changelog](https://github.com/NASA-PDS/ldd-manager/compare/v1.0.0...v1.0.1)
