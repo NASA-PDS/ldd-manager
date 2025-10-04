@@ -45,6 +45,7 @@ pip-selfcheck.json
 
 # Python testing artifacts
 .coverage
+coverage.xml
 htmlcov
 .tox/
 
