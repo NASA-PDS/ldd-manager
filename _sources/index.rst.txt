@@ -1,8 +1,9 @@
 Overview
 ========
 
-Welcome to your PDS template package! Have Fun!
+Welcome to the LDD Manager package.
 
+This package provides tools for managing PDS4 Local Data Dictionaries (LDDs).
 
 
 Sitemap
